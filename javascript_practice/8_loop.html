@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dynamic table geneator</h1>
+    <table border="1" width="100%" cellpadding="10">
+        <tr>
+            <td width="20%" valign="top">
+                <form action="">
+                    <table border="1" width="100%" cellpadding="10">
+                        <tr>
+                            <td>
+                                <input type="number" id="rows" required
+                                placeholder="Enter rows" onblur="GenerateTable();" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" id="columns" required
+                                placeholder="Enter Columns" onblur="GenerateTable();" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Select loop </b> <br/>
+                                <label for="while">
+                                    <input onchange="GenerateTable();" id="while" type="radio" name="loop" value="while" />While
+                                </label>
+                                <br/>
+                                <label for="for">
+                                    <input onchange="GenerateTable();" id="for" type="radio" name="loop" value="for" />For
+                                </label>
+                                <br/>
+                                <label for="dowhile">
+                                    <input onchange="GenerateTable();" id="dowhile" type="radio" name="loop" value="dowhile" />Do While
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+            <td valign="top">
+                <table width="100%" border="1" bgcolor="yellow" id="output"></table>
+            </td>
+        </tr>
+    </table>
+    <script>
+        // function getId(id)
+        // {
+        //     return document.getElementById(id);
+        // }
+        let $ = (id) => document.getElementById(id);
+        let GenerateTable = function()
+        {
+            let rows = $("rows");
+            let columns = $("columns");
+            let output = $("output");
+            var SelectedLoop = document.querySelector("input[name='loop']:checked").value;
+            console.log(SelectedLoop);
+            let temp = '';
+            var totalrow = parseInt(rows.value);
+            var totalcolumn = parseInt(columns.value);
+            if(SelectedLoop === 'for')
+            {
+                for(let i=1;i<=totalrow;i=i+1)
+                {
+                    temp+='<tr>';
+                    for(let c=1;c<=totalcolumn;c++)
+                    {
+                        temp+=`<td>${c}</td>`;
+                    }    
+                    temp+='</tr>';
+                }
+            }
+            else if(SelectedLoop === 'while')
+            {
+                let i=1;
+                while(i<=totalrow)
+                {
+                    temp+='<tr>';
+                    let c = 1;
+                    while(c<=totalcolumn)
+                    {
+                        temp+=`<td>${c}</td>`;
+                        c++;
+                    }
+                    temp+='</tr>';
+                    i++;
+                }
+            }
+            else if(SelectedLoop === 'dowhile')
+            {
+                let i=1;
+                do
+                {
+                    temp+='<tr>';
+                    let c = 1;
+                    {
+                        temp+=`<td>${c}</td>`;
+                        c++;
+                    }
+                    temp+='</tr>';
+                    c++;
+                }
+                while(i<=totalcolumn);
+            }
+            output.innerHTML=temp;  
+        }
+    </script>
+</body>
+</html>

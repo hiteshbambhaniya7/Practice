@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Write</title>
+</head>
+
+<body>
+    <h1>Example of Prompt And Write Method</h1>
+    <hr>
+
+    <script>
+        //user define function (UDF)
+        //with return value with argument function
+
+        function add(x, y) {
+            let temp = x + y; //local variable
+            return temp;
+        }
+        function sub(x, y) {
+            let temp = x - y;
+            return temp;
+        }
+        function multi(x, y) {
+            let temp = x * y;
+            return temp;
+        }
+        function div(x, y) {
+            let temp = x / y;
+            return temp;
+        }
+        
+        var messege1 = "Enter First Number";
+        var messege2 = "Enter Second Value";
+        var defaultvalue = 1;
+        var num1 = prompt(messege1, defaultvalue);
+        var num2 = prompt(messege2, defaultvalue);
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+        var addition = add(num1, num2);
+        var substraction = sub(num1, num2);
+        var multiplication = multi(num1, num2);
+        var divison = div(num1, num2);
+        document.write("Addition = ", addition, "<br/> Substraction = ", substraction, "<br/> Multiplication = ", multiplication, "<br/> Divison = ", divison);
+    </script>
+</body>
+
+</html>

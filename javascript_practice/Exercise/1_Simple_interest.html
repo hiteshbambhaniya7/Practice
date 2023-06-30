@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+</head>
+
+<body>
+    <!-- write a javascript code to calculate and return simple interest of given amount, rate and year. use prompt and
+    document.write method and user defined function. -->
+
+    <h1>Simple Interest Calculator</h1>
+    <hr>
+
+    <Script>
+        // A	=	final amount
+        // P	=	initial principal balance
+        // r	=	annual interest rate
+        // t	=	time (in years)
+
+        "use strict"
+
+        function a(p,r,t)
+        {
+            let temp=(p*r*t)/100;
+            return temp;
+        }
+
+        var massege1 = "Initial Principal Balance";
+        var massege2 = "Annual Interest Rate";
+        var massege3 = "Time (In Years)";
+
+        var value1 = prompt(massege1);
+        var value2 = prompt(massege2);
+        var value3 = prompt(massege3);
+
+        value1 = parseFloat(value1);
+        value2 = parseFloat(value2);
+        value3 = parseFloat(value3);
+        
+        var amount = a(value1,value2,value3);
+        document.write("Simple Interest : ",amount);
+    </Script>
+
+</body>
+
+</html>
