@@ -16,17 +16,14 @@
     <h1>Minutes To Hours Convertor</h1> <hr>
 
     <script>
-        function hours(min)
-        {
-            let temp=min/60;
-            return temp;
-        }
-
         var massege="Enter Minutes";
-
         var value=prompt(massege);
+        value=parseInt(value);
 
-        
+        var output=value/60;
+        output=parseInt(output);
+        var output2=value%60;
+        document.write("Entered Minutes : ",value,"</br>Hours : ",output,"</br>Minutes : ",output2);
     </script>
 
 </body>
